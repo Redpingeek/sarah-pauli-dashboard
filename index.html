@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Sarah Pauli: Project Command Center</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%3E%F0%9F%8F%9C%EF%B8%8F%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<!-- GLOSSED: named, listing, spot, click from Google, comparison pages -->
+<style>
+  :root{
+    --ground:#f4efe8; --card:#fffdfa; --ink:#2c2521; --muted:#7b6b60;
+    --primary:#9c5b43; --primary-soft:#f2e4dc; --silver:#d8c8bb; --gold:#b08d57;
+    --gold-soft:#f5ecdd; --line:#e6dad0;
+    --shadow:0 1px 2px rgba(44,37,33,.04),0 8px 26px rgba(44,37,33,.07);
+    --serif:'Cormorant Garamond','Iowan Old Style',Georgia,serif;
+    --sans:'Nunito Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#181310; --card:#211a16; --ink:#efe6de; --muted:#a39285;
+      --primary:#d99873; --primary-soft:#2c211b; --silver:#463830; --gold:#cba36a;
+      --gold-soft:#2a2118; --line:#31261f;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#181310; --card:#211a16; --ink:#efe6de; --muted:#a39285;
+    --primary:#d99873; --primary-soft:#2c211b; --silver:#463830; --gold:#cba36a;
+    --gold-soft:#2a2118; --line:#31261f;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px 72px;}
+  a{color:var(--primary);}
+
+  .masthead{background:linear-gradient(135deg,#9c5b43,#7d4331);color:#fdf7f2;
+    border-radius:0 0 20px 20px;padding:36px 30px 30px;margin-bottom:26px;position:relative;overflow:hidden;}
+  .masthead::after{content:"\25B2";position:absolute;right:28px;top:26px;font-size:54px;
+    color:rgba(253,247,242,.10);line-height:1;}
+  .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    color:rgba(253,247,242,.72);margin:0 0 12px;}
+  .masthead h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5.6vw,44px);
+    margin:0;line-height:1.05;letter-spacing:.01em;text-wrap:balance;}
+  .masthead .sub{margin:9px 0 18px;color:rgba(253,247,242,.88);font-size:15px;font-style:italic;}
+  .status{display:inline-flex;align-items:center;gap:8px;background:rgba(253,247,242,.14);
+    border:1px solid rgba(253,247,242,.3);color:#fdf7f2;padding:6px 13px;border-radius:100px;
+    font-size:12.5px;letter-spacing:.04em;}
+  .dot{width:8px;height:8px;border-radius:50%;background:#f0c9a4;box-shadow:0 0 0 4px rgba(240,201,164,.22);}
+
+  section{margin:30px 0;}
+  .label{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--primary);
+    font-weight:700;margin:0 0 14px;display:flex;align-items:center;gap:10px;}
+  .label::before{content:"\25B2";font-size:10px;}
+  .label::after{content:"";height:1px;flex:1;background:var(--line);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);}
+
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:700px){.timeline{grid-template-columns:1fr;}}
+  .milestone{padding:18px;}
+  .m-ico{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:700;margin-bottom:11px;}
+  .m-done .m-ico{background:var(--primary);color:#fdf7f2;}
+  .m-date{font-size:12px;color:var(--muted);letter-spacing:.03em;}
+  .m-title{font-family:var(--serif);font-weight:600;font-size:20px;margin:2px 0 4px;}
+  .m-note{font-size:13px;color:var(--muted);}
+  .m-tag{display:inline-block;margin-top:9px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    padding:3px 8px;border-radius:6px;background:var(--primary-soft);color:var(--primary);}
+
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media (max-width:700px){.metrics{grid-template-columns:repeat(2,1fr);}}
+  .metric{padding:18px 14px;text-align:center;}
+  .metric .n{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1;color:var(--primary);
+    font-variant-numeric:tabular-nums;}
+  .metric .k{font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.02em;}
+
+  .panel{padding:6px 4px;}
+  .row{display:flex;gap:12px;padding:13px 16px;align-items:flex-start;}
+  .row + .row{border-top:1px solid var(--line);}
+  .check{flex:none;width:20px;height:20px;border-radius:50%;background:var(--primary);color:#fdf7f2;
+    display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px;}
+  .row b{font-weight:700;}
+  .row .s{color:var(--muted);}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .chip{font-size:12px;background:var(--primary-soft);color:var(--primary);border-radius:100px;padding:3px 10px;}
+
+  .quote{padding:20px 22px;font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--ink);}
+  .quote .who{display:block;font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    letter-spacing:.04em;margin-top:12px;font-style:normal;}
+
+  .cite-head{padding:18px 18px 4px;}
+  .cite-head .big{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink);line-height:1.28;}
+  .cite-head .big em{color:var(--primary);font-style:italic;}
+  .tablewrap{overflow-x:auto;}
+  .mtable{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px;min-width:460px;}
+  .mtable th,.mtable td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);}
+  .mtable th{font-family:var(--serif);font-weight:600;font-size:14px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.06em;}
+  .mtable td:first-child{color:var(--muted);}
+  .mtable td.v{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--ink);
+    font-variant-numeric:tabular-nums;}
+  .watch{padding:14px 18px;}
+  .watch p{margin:0 0 10px;font-size:14.5px;}
+  .note{padding:10px 18px 14px;font-size:13px;color:var(--muted);}
+  .lead{padding:2px 18px 8px;margin:0;font-size:13.5px;color:var(--muted);}
+
+  .progress-head{display:flex;justify-content:space-between;align-items:baseline;padding:16px 18px 4px;gap:12px;flex-wrap:wrap;}
+  .progress-head .t{font-family:var(--serif);font-weight:600;font-size:20px;}
+  .progress-head .c{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .bar{height:7px;background:var(--primary-soft);border-radius:100px;margin:10px 18px 6px;overflow:hidden;}
+  .bar > i{display:block;height:100%;width:0;background:var(--primary);border-radius:100px;transition:width .35s ease;}
+  .item{display:flex;gap:12px;align-items:flex-start;padding:12px 18px;border-top:1px solid var(--line);cursor:pointer;}
+  .item input{appearance:none;-webkit-appearance:none;flex:none;width:19px;height:19px;margin:2px 0 0;
+    border:1.5px solid var(--silver);border-radius:5px;background:var(--card);cursor:pointer;position:relative;transition:.15s;}
+  .item input:checked{background:var(--primary);border-color:var(--primary);}
+  .item input:checked::after{content:"\2713";position:absolute;inset:0;color:#fdf7f2;font-size:12px;
+    display:flex;align-items:center;justify-content:center;}
+  .item .txt{font-size:14.5px;}
+  .item .txt b{font-weight:700;}
+  .item .txt .d{display:block;color:var(--muted);font-size:13px;margin-top:2px;}
+  .item.checked .txt{text-decoration:line-through;text-decoration-color:var(--silver);color:var(--muted);}
+
+  .foot{text-align:center;color:var(--muted);font-size:12.5px;margin-top:40px;}
+  .foot .rp{font-family:var(--serif);font-size:17px;color:var(--primary);margin-bottom:5px;}
+</style>
+
+<div class="masthead">
+  <p class="eyebrow">Red Pin Geek</p>
+  <h1>Sarah Pauli</h1>
+  <p class="sub">Search and AI visibility, built around Sedona and the Wild Sage line &nbsp;&middot;&nbsp; for Sarah</p>
+  <span class="status"><span class="dot"></span> Live &nbsp;&middot;&nbsp; second measurement done</span>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <p class="label">Timeline</p>
+    <div class="timeline">
+      <div class="card milestone m-done">
+        <div class="m-ico">&#10003;</div>
+        <div class="m-date">Spring 2026</div>
+        <div class="m-title">10 pieces rewritten</div>
+        <div class="m-note">Ten product pages rebuilt in your voice, with the machine-readable layer added underneath.</div>
+        <span class="m-tag">Complete</span>
+      </div>
+      <div class="card milestone m-done">
+        <div class="m-ico">&#10003;</div>
+        <div class="m-date">25 June 2026</div>
+        <div class="m-title">Sedona page live</div>
+        <div class="m-note">A real written page for the Wild Sage desert story, instead of only a grid of products.</div>
+        <span class="m-tag">Complete</span>
+      </div>
+      <div class="card milestone m-done">
+        <div class="m-ico">&#10003;</div>
+        <div class="m-date">31 August 2026</div>
+        <div class="m-title">Second measurement</div>
+        <div class="m-note">Measured again against July. Assistants now send people to your Sedona page by name.</div>
+        <span class="m-tag">Complete</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">What you told me</p>
+    <div class="card">
+      <div class="quote">
+        &ldquo;It reads so well! And it feels like a very confident voice.&rdquo;
+        <span class="who">Sarah, on seeing one of the rewritten pages</span>
+      </div>
+      <div class="note" style="border-top:1px solid var(--line);padding-top:12px;">
+        That line is still the best measure I have of whether this work is landing, and it is worth more
+        than any number further down this page. So when we next speak, two questions I would love your
+        answer to: <strong>what are you noticing in the inquiries you get</strong>, and <strong>do people
+        arrive already knowing what they want</strong>? Those answers tell us things Google cannot.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">At a glance</p>
+    <div class="metrics">
+      <div class="card metric"><div class="n">10</div><div class="k">Product pages rewritten</div></div>
+      <div class="card metric"><div class="n">1</div><div class="k">Collection page built</div></div>
+      <div class="card metric"><div class="n">16<span style="font-size:20px">/16</span></div><div class="k">Machine-readiness, up from 3</div></div>
+      <div class="card metric"><div class="n">2</div><div class="k">Ways we measure</div></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">What is complete</p>
+    <div class="card">
+      <div class="panel">
+        <div class="row"><span class="check">&#10003;</span><div><b>Ten product pages rewritten and live.</b>
+        <span class="s">Each one written as a personal essay rather than product copy, with your buyers&rsquo;
+        real questions answered on the page and a side-by-side table of the details people compare. Each
+        also carries a hidden layer that only search engines and AI assistants read, which is how they
+        understand what the piece actually is.</span>
+        <div class="chips"><span class="chip">Vanilla Orchid</span><span class="chip">Pitaya</span><span class="chip">Paraiso</span><span class="chip">Dream Time</span><span class="chip">Manzanita</span><span class="chip">Reverie</span><span class="chip">Salt and Sea Bracelet</span><span class="chip">Delfin</span><span class="chip">Celeste</span><span class="chip">Crystal Springs</span></div>
+        </div></div>
+        <div class="row"><span class="check">&#10003;</span><div><b>Machine-readiness went from 3 out of 16 to 16 out of 16.</b>
+        <span class="s">That is a checklist of the things a search engine or an assistant needs to find on a
+        page before it will trust and repeat what the page says. You went from almost none of them to all
+        of them, with no errors left.</span></div></div>
+        <div class="row"><span class="check">&#10003;</span><div><b>The Sedona page is built and live.</b>
+        <span class="s">Your Wild Sage desert story as a proper written page, reachable from your home page.
+        You have since simplified your Collections menu, which was the right call for how you wanted that
+        menu to feel, so the text link on your home page is now the one path to it from anywhere else on
+        your own site. That single fact is why the first item under Your next moves is what it is.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">What we are tracking</p>
+    <div class="card">
+      <div class="cite-head">
+        <div class="big">Ask an assistant where to buy handcrafted gemstone jewelry in Sedona and it now
+        answers with <em>your Sedona page</em>, by name. Google has that same page sitting on about page seven.</div>
+      </div>
+
+      <!-- FRAME:two-doors -->
+      <div class="watch" style="padding-top:10px;">
+        <p><strong>There are two different doors into your shop now, and they no longer open together.</strong></p>
+        <p>For years being findable meant one thing: showing up high in Google&rsquo;s list of blue links.
+        That still matters, and plenty of your customers shop exactly that way.</p>
+        <p>But a growing number never see that list. They ask an assistant a question in plain English and
+        get back one answer, with a few shops <strong>named</strong> in it. Being named in that answer is a
+        different thing from showing up high in Google&rsquo;s list, and the two have come apart. Being strong in one does
+        not carry you in the other.</p>
+        <p>That is why this section has two parts. The first asks: <em>do assistants name you?</em> The
+        second asks: <em>where do you sit in Google&rsquo;s list?</em> Your Sedona page is currently a very
+        clean example of one door wide open and the other shut.</p>
+      </div>
+      <!-- /FRAME -->
+
+      <p class="lead" style="padding-top:12px;"><strong>Four words used a lot below, in plain terms.</strong>
+      Being <strong>named</strong> is when an assistant mentions you in its answer. A <strong>listing</strong>
+      is one time your page appeared in somebody&rsquo;s Google results. Your <strong>spot</strong> is how far
+      down that Google list you were, where 1st to 10th is the first page and almost nobody scrolls past it.
+      A <strong>click from Google</strong> is somebody seeing your listing and choosing to open it.
+      <strong>Comparison pages</strong> are pages we deliberately left alone, so we can tell your results
+      apart from the weather.</p>
+
+      <p class="lead" style="padding-top:10px;"><strong>1. Door one: do AI assistants name you?</strong>
+      Each month I ask assistants the same shopping questions a real customer would ask, worded the same way
+      every time, then count how often you come back in the answer.</p>
+      <div class="tablewrap">
+      <table class="mtable">
+        <tr><th>&nbsp;</th><th>17 July</th><th>31 August</th></tr>
+        <tr><td>Shopping questions where an assistant named you</td><td class="v">1 of 5</td><td class="v">3 of 5</td></tr>
+        <tr><td>For the Sedona question, which page it sends people to</td><td class="v">Your About page</td><td class="v">Your Sedona page</td></tr>
+        <tr><td>Does it just mention you, or actually pick you?</td><td class="v">Mentions</td><td class="v">Picks you</td></tr>
+        <tr><td>Comparison pages, the ones we left alone</td><td class="v">0 of 5</td><td class="v">1 of 5</td></tr>
+        <tr><td>People searching for you by name</td><td class="v">Named</td><td class="v">Still named</td></tr>
+      </table>
+      </div>
+      <div class="note">The second and third rows are the win. In July an assistant answered the Sedona
+      question by pointing at your About page, which is not where anyone can buy anything. It now points at
+      the Sedona page itself and calls it the strongest match, in both of the two times I asked. A first
+      answer also appeared for the keishi pearl and opal question, where you had none in July.</div>
+
+      <p class="lead" style="padding-top:14px;"><strong>2. Door two: where do you sit in Google&rsquo;s list?</strong>
+      Real people searching, 4 August to 31 August.</p>
+      <div class="tablewrap">
+      <table class="mtable">
+        <tr><th>Page</th><th>Your spot</th><th>Listings</th><th>Clicks from Google</th></tr>
+        <tr><td>Sedona page</td><td class="v">69th</td><td class="v">7</td><td class="v">0</td></tr>
+        <tr><td><strong>Your whole site, for comparison</strong></td><td class="v">&nbsp;</td><td class="v">456</td><td class="v">45</td></tr>
+      </table>
+      </div>
+      <!-- CAVEAT:click-attribution --><div class="note">One honest limit, and it matters for reading that
+      zero. This table can only see Google. A zero in the last column means nobody opened that page
+      <em>from a Google results page</em>. It does not mean nobody reached you. When an assistant names you
+      and somebody comes straight to your shop, Google never sees that visit at all. Some of those people
+      click straight through and your own site analytics catch them, but plenty read the answer and then
+      simply type your name into their browser, which arrives looking identical to somebody who already knew
+      you. This is genuinely hard to count, and anybody who says they can measure it precisely is selling
+      something. What it means in practice is that the effect of being named is almost certainly larger than
+      any number here can show, not smaller.</div><!-- /CAVEAT -->
+
+      <div class="watch">
+        <p><strong>The big one: same page, one door open and one shut.</strong> An assistant now recommends
+        your Sedona page as the strongest match for somebody shopping for handcrafted gemstone jewelry in
+        Sedona. Google has that same page at about the 69th spot, shown 7 times in four weeks. Somebody who
+        asks an assistant finds it. Somebody who types into Google effectively cannot.</p>
+        <p><strong>What that tells us about the next move.</strong> The page itself is clearly good enough,
+        because an assistant reads it and picks it. What it lacks is the thing Google weighs most heavily
+        and assistants weigh less: other places on the web pointing at it. That is the gap to close, and it
+        is the reason the next moves below are about links rather than more writing.</p>
+        <p><strong>Your name is working hard.</strong> Your home page brings in 38 of your 45 clicks at
+        around the 4th spot. People who already know you find you easily. The work we are doing is aimed at
+        the people who do not know you yet, which is a slower and harder thing to move.</p>
+      </div>
+
+      <div class="note" style="border-top:1px solid var(--line);"><strong>And one honest caution, because
+      you should not take a good month at face value.</strong> One of the comparison pages, the Passion
+      Flower necklace, also started being named this month, and we never touched that page. When a page we
+      left alone improves too, some of the change is the assistants getting better rather than the work
+      landing. So I am calling this month a direction and not a proven result. What makes me hopeful is the
+      shape of it: your gains are specific to the exact page we built, and the comparison gain is a
+      general one. If the Sedona result holds next month, that settles it. These are small numbers either
+      way, and they are read across several months, never one.</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Your next moves</p>
+    <div class="card">
+      <div class="progress-head">
+        <span class="t">At your pace, nothing blocking</span>
+        <span class="c" id="counter">0 of 3 done</span>
+      </div>
+      <div class="bar"><i id="fill"></i></div>
+      <p class="lead">These build on what is already done. Check them off as you go; your progress saves on this device.</p>
+      <label class="item"><input type="checkbox" data-id="s1"><span class="txt"><b>Point your existing writing at the Sedona page</b><span class="d">Any blog post, newsletter or stockist page of yours that mentions Sedona or the Wild Sage line should link to the Sedona page. Google reads links as votes, and right now that page has exactly one from anywhere on your own site: the text link on your home page. That is the thinnest possible support for a page we want Google to take seriously. This is the single highest-value thing on this list and it costs nothing.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="s2"><span class="txt"><b>Confirm the facts in the Sedona page questions section</b><span class="d">The questions and answers on that page are written but still marked as needing your confirmation, because they make claims about your materials and process that only you can verify. Once you confirm them I can mark them as verified for the assistants, which they weigh heavily.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="s3"><span class="txt"><b>Decide on the pearl and bridal page for spring</b><span class="d">The second collection page is specced and ready to build, anchored on the Vanilla Orchid pearl piece. It wants to go live well ahead of bridal season, so the decision is worth making sooner than the build.</span></span></label>
+    </div>
+  </section>
+
+  <div class="foot">
+    <div class="rp">Red Pin Geek</div>
+    Starting point 17 July 2026 &nbsp;&middot;&nbsp; second measurement 31 August 2026 &nbsp;&middot;&nbsp; next update late September
+  </div>
+</div>
+
+<script>
+  (function(){
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.item input'));
+    var counter = document.getElementById('counter'), fill = document.getElementById('fill');
+    var KEY = 'sp-cmd-v1-';
+    function refresh(){
+      var done = 0;
+      boxes.forEach(function(b){ b.closest('.item').classList.toggle('checked', b.checked); if(b.checked) done++; });
+      counter.textContent = done + ' of ' + boxes.length + ' done';
+      fill.style.width = (boxes.length ? (done/boxes.length*100) : 0) + '%';
+    }
+    boxes.forEach(function(b){
+      var id = KEY + b.getAttribute('data-id');
+      try { if(localStorage.getItem(id) === '1') b.checked = true; } catch(e){}
+      b.addEventListener('change', function(){ try { localStorage.setItem(id, b.checked?'1':'0'); } catch(e){} refresh(); });
+    });
+    refresh();
+  })();
+</script>
+
+</body>
+</html>
