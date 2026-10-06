@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%3E%F0%9F%8F%9C%EF%B8%8F%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-<!-- GLOSSED: named, listing, spot, click from Google, comparison pages -->
+<!-- GLOSSED: named, recommended, absent, listing, spot, click from Google, comparison pages -->
 <style>
   :root{
     --ground:#f4efe8; --card:#fffdfa; --ink:#2c2521; --muted:#7b6b60;
@@ -59,8 +59,9 @@
   .label::after{content:"";height:1px;flex:1;background:var(--line);}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);}
 
-  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  @media (max-width:700px){.timeline{grid-template-columns:1fr;}}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media (max-width:860px){.timeline{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.timeline{grid-template-columns:1fr;}}
   .milestone{padding:18px;}
   .m-ico{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
     font-size:13px;font-weight:700;margin-bottom:11px;}
@@ -132,7 +133,7 @@
   <p class="eyebrow">Red Pin Geek</p>
   <h1>Sarah Pauli</h1>
   <p class="sub">Search and AI visibility, built around Sedona and the Wild Sage line &nbsp;&middot;&nbsp; for Sarah</p>
-  <span class="status"><span class="dot"></span> Live &nbsp;&middot;&nbsp; second measurement done</span>
+  <span class="status"><span class="dot"></span> Live &nbsp;&middot;&nbsp; third measurement done</span>
 </div>
 
 <div class="wrap">
@@ -161,6 +162,13 @@
         <div class="m-note">Measured again against July. Assistants now send people to your Sedona page by name.</div>
         <span class="m-tag">Complete</span>
       </div>
+      <div class="card milestone m-done">
+        <div class="m-ico">&#10003;</div>
+        <div class="m-date">4 October 2026</div>
+        <div class="m-title">Third measurement</div>
+        <div class="m-note">Two shopping questions now come back with you as the pick, including a first for the Salt and Sea bracelet.</div>
+        <span class="m-tag">Complete</span>
+      </div>
     </div>
   </section>
 
@@ -173,7 +181,7 @@
       </div>
       <div class="note" style="border-top:1px solid var(--line);padding-top:12px;">
         That line is still the best measure I have of whether this work is landing, and it is worth more
-        than any number further down this page. So when we next speak, two questions I would love your
+        than any number further down this page. So whenever you have a minute, two questions I would love your
         answer to: <strong>what are you noticing in the inquiries you get</strong>, and <strong>do people
         arrive already knowing what they want</strong>? Those answers tell us things Google cannot.
       </div>
@@ -218,8 +226,9 @@
     <p class="label">What we are tracking</p>
     <div class="card">
       <div class="cite-head">
-        <div class="big">Ask an assistant where to buy handcrafted gemstone jewelry in Sedona and it now
-        answers with <em>your Sedona page</em>, by name. Google has that same page sitting on about page seven.</div>
+        <div class="big">Ask an assistant for a gemstone necklace inspired by the Sedona desert and it answers
+        with <em>your Wild Sage collection</em> as the best fit, two readings running. Google had your Sedona page
+        sitting on about page seven.</div>
       </div>
 
       <!-- FRAME:two-doors -->
@@ -241,6 +250,8 @@
       Being <strong>named</strong> is when an assistant mentions you in its answer. A <strong>listing</strong>
       is one time your page appeared in somebody&rsquo;s Google results. Your <strong>spot</strong> is how far
       down that Google list you were, where 1st to 10th is the first page and almost nobody scrolls past it.
+      Being <strong>recommended</strong> is one step further: the assistant presents you as the pick, not
+      just one name among several. <strong>Absent</strong> means you were not in the answer at all.
       A <strong>click from Google</strong> is somebody seeing your listing and choosing to open it.
       <strong>Comparison pages</strong> are pages we deliberately left alone, so we can tell your results
       apart from the weather.</p>
@@ -250,21 +261,40 @@
       every time, then count how often you come back in the answer.</p>
       <div class="tablewrap">
       <table class="mtable">
-        <tr><th>&nbsp;</th><th>17 July</th><th>31 August</th></tr>
-        <tr><td>Shopping questions where an assistant named you</td><td class="v">1 of 5</td><td class="v">3 of 5</td></tr>
-        <tr><td>For the Sedona question, which page it sends people to</td><td class="v">Your About page</td><td class="v">Your Sedona page</td></tr>
-        <tr><td>Does it just mention you, or actually pick you?</td><td class="v">Mentions</td><td class="v">Picks you</td></tr>
-        <tr><td>Comparison pages, the ones we left alone</td><td class="v">0 of 5</td><td class="v">1 of 5</td></tr>
-        <tr><td>People searching for you by name</td><td class="v">Named</td><td class="v">Still named</td></tr>
+        <tr><th>&nbsp;</th><th>17 July</th><th>31 August</th><th>4 October</th></tr>
+        <tr><td>Shopping questions where an assistant named you</td><td class="v">1 of 5</td><td class="v">3 of 5</td><td class="v">3 of 5</td></tr>
+        <tr><td>Shopping questions where it recommended you</td><td class="v">Not recorded in July</td><td class="v">2 of 5</td><td class="v">2 of 5</td></tr>
+        <tr><td>For the Sedona buying question, which page it sends people to</td><td class="v">Your About page</td><td class="v">Your Sedona page</td><td class="v">Your home, About and Cosmic pages</td></tr>
+        <tr><td>For that same question, does it just mention you, or actually pick you?</td><td class="v">Mentions</td><td class="v">Recommended</td><td class="v">Named, one of five shops</td></tr>
+        <tr><td>Answers that pointed to your site, out of 54 for your questions</td><td class="v">10</td><td class="v">18</td><td class="v">18</td></tr>
+        <tr><td>Answers that pointed to your site, out of 30 for the comparison questions</td><td class="v">0</td><td class="v">4</td><td class="v">0</td></tr>
+        <tr><td>Comparison pages, the ones we left alone</td><td class="v">0 of 5</td><td class="v">1 of 5</td><td class="v">0 of 5</td></tr>
+        <tr><td>People searching for you by name</td><td class="v">Named</td><td class="v">Still named</td><td class="v">Still named</td></tr>
       </table>
       </div>
-      <div class="note">The second and third rows are the win. In July an assistant answered the Sedona
-      question by pointing at your About page, which is not where anyone can buy anything. It now points at
-      the Sedona page itself and calls it the strongest match, in both of the two times I asked. A first
+      <div class="note"><strong>What August showed.</strong> In July an assistant answered the Sedona
+      question by pointing at your About page, which is not where anyone can buy anything. In August it pointed at
+      the Sedona page itself and called it the strongest match, in both of the two times I asked. A first
       answer also appeared for the keishi pearl and opal question, where you had none in July.</div>
+      <div class="note"><strong>What October showed.</strong> Two of your shopping questions now come back with you
+      as the pick. The Sedona desert necklace question, for the second reading in a row: &ldquo;the best fit ... is
+      Sarah Pauli&rsquo;s Wild Sage collection.&rdquo; And the Salt and Sea aquamarine bracelet question, which had
+      never brought you up before. The Sedona buying question still names you, now as one of five shops. One went
+      the other way: the keishi pearl and opal question, which found you for the first time in August, came back
+      absent this time. One question moving on its own like that is usually the assistants varying, so I am
+      watching it rather than acting on it.</div>
+      <div class="note"><strong>One honest note on Salt and Sea.</strong> That is the name of your own collection,
+      so somebody asking for it by name is partly already asking for you. It shows the assistants know that name
+      is yours, which is real and good. It is not the same thing as a stranger finding you, and I will not count it
+      as if it were.</div>
+      <div class="note"><strong>Two more things October showed.</strong> First, the page doing the work changed.
+      In August your Sedona page answered both Sedona questions. In October the assistants reached for your home,
+      About, Cosmic and blog pages instead, and the Sedona page came up once in 84 answers. Your name carried it
+      this time. Second, every one of these shopping wins came from one assistant, Perplexity. Google&rsquo;s AI
+      Mode and Google&rsquo;s Gemini only bring you up when somebody asks for you by name.</div>
 
       <p class="lead" style="padding-top:14px;"><strong>2. Door two: where do you sit in Google&rsquo;s list?</strong>
-      Real people searching, 4 August to 31 August.</p>
+      Real people searching, 4 August to 31 August. These Google numbers have not been pulled again since.</p>
       <div class="tablewrap">
       <table class="mtable">
         <tr><th>Page</th><th>Your spot</th><th>Listings</th><th>Clicks from Google</th></tr>
@@ -283,12 +313,12 @@
       any number here can show, not smaller.</div><!-- /CAVEAT -->
 
       <div class="watch">
-        <p><strong>The big one: same page, one door open and one shut.</strong> An assistant now recommends
+        <p><strong>The big one: same page, one door open and one shut.</strong> In August an assistant recommended
         your Sedona page as the strongest match for somebody shopping for handcrafted gemstone jewelry in
-        Sedona. Google has that same page at about the 69th spot, shown 7 times in four weeks. Somebody who
-        asks an assistant finds it. Somebody who types into Google effectively cannot.</p>
+        Sedona, while Google had that same page at about the 69th spot, shown 7 times in four weeks. Somebody who
+        asks an assistant finds you. Somebody who types into Google effectively cannot.</p>
         <p><strong>What that tells us about the next move.</strong> The page itself is clearly good enough,
-        because an assistant reads it and picks it. What it lacks is the thing Google weighs most heavily
+        because an assistant has read it and picked it. What it lacks is the thing Google weighs most heavily
         and assistants weigh less: other places on the web pointing at it. That is the gap to close, and it
         is the reason the next moves below are about links rather than more writing.</p>
         <p><strong>Your name is working hard.</strong> Your home page brings in 38 of your 45 clicks at
@@ -296,14 +326,50 @@
         the people who do not know you yet, which is a slower and harder thing to move.</p>
       </div>
 
-      <div class="note" style="border-top:1px solid var(--line);"><strong>And one honest caution, because
-      you should not take a good month at face value.</strong> One of the comparison pages, the Passion
-      Flower necklace, also started being named this month, and we never touched that page. When a page we
-      left alone improves too, some of the change is the assistants getting better rather than the work
-      landing. So I am calling this month a direction and not a proven result. What makes me hopeful is the
-      shape of it: your gains are specific to the exact page we built, and the comparison gain is a
-      general one. If the Sedona result holds next month, that settles it. These are small numbers either
-      way, and they are read across several months, never one.</div>
+      <div class="note" style="border-top:1px solid var(--line);"><strong>The honest caution, updated for
+      October.</strong> In August one of the comparison pages, the Passion Flower necklace, was also being named,
+      and we never touched that page. That is why I called August a direction and not a proven result. In October
+      it was absent again, and the comparison questions as a group went back to zero, where they started in July.
+      So for the first time your questions are up since July and the ones we left alone are not: about 1 in 3
+      answers to your questions pointed to your site, against about 1 in 5 in July, while the comparison
+      questions sit at 0 of 30, same as July. That difference is the part we can credit to the work. But notice
+      how it happened. Your side held steady from August, and the comparison side dropped back. It did not come
+      from yours climbing further. One reading like this is a sighting, not a pattern. Two or three more in a
+      row would be.</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">ChatGPT, checked by hand</p>
+    <div class="card">
+      <p class="lead" style="padding-top:16px;">ChatGPT cannot be asked the same way the others can, so I ask it
+      myself, in a fresh chat with nothing about me or you remembered. One try per question, so read these as two
+      snapshots, not a trend.</p>
+      <div class="tablewrap">
+      <table class="mtable">
+        <tr><th>Question</th><th>1 September</th><th>4 October</th></tr>
+        <tr><td>Where to buy handcrafted gemstone jewelry in Sedona</td><td class="v">Absent</td><td class="v">Absent</td></tr>
+        <tr><td>A gemstone necklace inspired by the Sedona desert</td><td class="v">Absent</td><td class="v">Absent</td></tr>
+        <tr><td>A designer for a one-of-a-kind chrysocolla necklace</td><td class="v">Absent</td><td class="v">Not asked</td></tr>
+        <tr><td>A Salt and Sea aquamarine bracelet (your own collection name)</td><td class="v">Not asked</td><td class="v">Named, first line</td></tr>
+        <tr><td>Who is Sarah Pauli</td><td class="v">Named</td><td class="v">Not asked</td></tr>
+      </table>
+      </div>
+      <div class="watch">
+        <p><strong>ChatGPT knows exactly who you are.</strong> Asked about you, it gave a long, accurate profile:
+        your Sedona studio, hand fabrication, 14k gold-filled findings, Wild Sage and the landscape behind it, your
+        stones by name. Asked for your Salt and Sea collection, it answered with you in the first line.</p>
+        <p><strong>But it does not offer you for a buying question, and the reason is in the shape of its
+        answers.</strong> For the Sedona buying question it answered both times with a map of local shops: street
+        addresses, star ratings, storefronts. For the necklace questions it answered with rows of product cards,
+        each one with a name, a photo and a price. It did not answer from ordinary websites at all, so a better
+        written page cannot get you into those answers on its own. Your pages already show their prices, so a
+        missing price is not the gap.</p>
+        <p><strong>The open question</strong> is whether your pieces reach the shopping listings those product
+        cards are drawn from, and in what form. Answering it means looking at how your shop connects to Google&rsquo;s
+        shopping listings, which sits inside your own accounts. That is its own piece of work, separate from what
+        we are doing now, so there is nothing to decide today.</p>
+      </div>
     </div>
   </section>
 
@@ -316,7 +382,7 @@
       </div>
       <div class="bar"><i id="fill"></i></div>
       <p class="lead">These build on what is already done. Check them off as you go; your progress saves on this device.</p>
-      <label class="item"><input type="checkbox" data-id="s1"><span class="txt"><b>Point your existing writing at the Sedona page</b><span class="d">Any blog post, newsletter or stockist page of yours that mentions Sedona or the Wild Sage line should link to the Sedona page. Google reads links as votes, and right now that page has exactly one from anywhere on your own site: the text link on your home page. That is the thinnest possible support for a page we want Google to take seriously. This is the single highest-value thing on this list and it costs nothing.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="s1"><span class="txt"><b>Point your existing writing at the Sedona page</b><span class="d">Any blog post, newsletter or stockist page of yours that mentions Sedona or the Wild Sage line should link to the Sedona page. Google reads links as votes, and right now that page has exactly one from anywhere on your own site: the text link on your home page (I checked all 338 pages of your site again on 6 October). That is the thinnest possible support for a page we want Google to take seriously, and in October the assistants reached for your home and blog pages instead of it. This is the single highest-value thing on this list and it costs nothing.</span></span></label>
       <label class="item"><input type="checkbox" data-id="s2"><span class="txt"><b>Confirm the facts in the Sedona page questions section</b><span class="d">The questions and answers on that page are written but still marked as needing your confirmation, because they make claims about your materials and process that only you can verify. Once you confirm them I can mark them as verified for the assistants, which they weigh heavily.</span></span></label>
       <label class="item"><input type="checkbox" data-id="s3"><span class="txt"><b>Decide on the pearl and bridal page for spring</b><span class="d">The second collection page is specced and ready to build, anchored on the Vanilla Orchid pearl piece. It wants to go live well ahead of bridal season, so the decision is worth making sooner than the build.</span></span></label>
     </div>
@@ -324,7 +390,7 @@
 
   <div class="foot">
     <div class="rp">Red Pin Geek</div>
-    Starting point 17 July 2026 &nbsp;&middot;&nbsp; second measurement 31 August 2026 &nbsp;&middot;&nbsp; next update late September
+    Starting point 17 July 2026 &nbsp;&middot;&nbsp; second measurement 31 August 2026 &nbsp;&middot;&nbsp; third measurement 4 October 2026 &nbsp;&middot;&nbsp; next reading early November
   </div>
 </div>
 
